@@ -167,16 +167,17 @@ public class VAppPermissionManager {
      * @return 权限开关状态
      */
     public boolean getAppPermissionEnable(String packageName, String appPermissionName) {
-        VLog.d(TAG, "getAppPermissionEnable packageName: " + (TextUtils.isEmpty(packageName) ? "" : packageName)
-                + " appPermissionName: " + (TextUtils.isEmpty(appPermissionName) ? "" : appPermissionName));
-        try {
-            boolean appPermissionEnable = getService().getAppPermissionEnable(packageName, appPermissionName);
-            VLog.d(TAG, "getAppPermissionEnable result: " + appPermissionEnable);
-            return appPermissionEnable;
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return VirtualRuntime.crash(e);
-        }
+//        VLog.d(TAG, "getAppPermissionEnable packageName: " + (TextUtils.isEmpty(packageName) ? "" : packageName)
+//                + " appPermissionName: " + (TextUtils.isEmpty(appPermissionName) ? "" : appPermissionName));
+//        try {
+//            boolean appPermissionEnable = getService().getAppPermissionEnable(packageName, appPermissionName);
+//            VLog.d(TAG, "getAppPermissionEnable result: " + appPermissionEnable);
+//            return appPermissionEnable;
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            return VirtualRuntime.crash(e);
+//        }
+        return true;
     }
 
     /**
@@ -186,12 +187,12 @@ public class VAppPermissionManager {
      */
     public void registerCallback(IAppPermissionCallback iAppPermissionCallback) {
         VLog.d(TAG, "registerCallback");
-        try {
-            getService().registerCallback(iAppPermissionCallback);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().registerCallback(iAppPermissionCallback);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -199,12 +200,12 @@ public class VAppPermissionManager {
      */
     public void unregisterCallback() {
         VLog.d(TAG, "unregisterCallback");
-        try {
-            getService().unregisterCallback();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().unregisterCallback();
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -216,12 +217,12 @@ public class VAppPermissionManager {
     public void interceptorTriggerCallback(String appPackageName, String permissionName) {
         VLog.d(TAG, "interceptorTriggerCallback appPackageName: " + (TextUtils.isEmpty(appPackageName) ? "" : appPackageName)
                 + " permissionName: " + (TextUtils.isEmpty(permissionName) ? "" : permissionName));
-        try {
-            getService().interceptorTriggerCallback(appPackageName, permissionName);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().interceptorTriggerCallback(appPackageName, permissionName);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -231,12 +232,12 @@ public class VAppPermissionManager {
      */
     public void cacheClipData(ClipData clipData) {
         VLog.d(TAG, "cacheClipData");
-        try {
-            getService().cacheClipData(clipData);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().cacheClipData(clipData);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -244,12 +245,13 @@ public class VAppPermissionManager {
      */
     public ClipData getClipData() {
         VLog.d(TAG, "getClipData");
-        try {
-            return getService().getClipData();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return VirtualRuntime.crash(e);
-        }
+//        try {
+//            return getService().getClipData();
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            return VirtualRuntime.crash(e);
+//        }
+        return null;
     }
 
     /**
@@ -259,12 +261,12 @@ public class VAppPermissionManager {
      */
     public void cachePrimaryClipChangedListener(IOnPrimaryClipChangedListener listener) {
         VLog.d(TAG, "cachePrimaryClipChangedListener");
-        try {
-            getService().cachePrimaryClipChangedListener(listener);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().cachePrimaryClipChangedListener(listener);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -272,12 +274,12 @@ public class VAppPermissionManager {
      */
     public void callPrimaryClipChangedListener() {
         VLog.d(TAG, "callPrimaryClipChangedListener");
-        try {
-            getService().callPrimaryClipChangedListener();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().callPrimaryClipChangedListener();
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -285,12 +287,12 @@ public class VAppPermissionManager {
      */
     public void removePrimaryClipChangedListener() {
         VLog.d(TAG, "removePrimaryClipChangedListener");
-        try {
-            getService().removePrimaryClipChangedListener();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().removePrimaryClipChangedListener();
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -301,11 +303,12 @@ public class VAppPermissionManager {
      */
     public boolean getLocationEnable(String packageName) {
         VLog.d(TAG, "getLocationEnable packageName: " + (TextUtils.isEmpty(packageName) ? "" : packageName));
-        boolean result = !TextUtils.isEmpty(packageName) && getAppPermissionEnable(packageName, PROHIBIT_LOCATION);
-        if (result) {
-            interceptorTriggerCallback(packageName, PROHIBIT_LOCATION);
-        }
-        return result;
+//        boolean result = !TextUtils.isEmpty(packageName) && getAppPermissionEnable(packageName, PROHIBIT_LOCATION);
+//        if (result) {
+//            interceptorTriggerCallback(packageName, PROHIBIT_LOCATION);
+//        }
+//        return result;
+        return false;
     }
 
     /**
@@ -315,25 +318,26 @@ public class VAppPermissionManager {
      */
     public void setThirdAppInstallationEnable(boolean isEnable) {
         VLog.d(TAG, "setThirdAppInstallationEnable isEnable: " + isEnable);
-        try {
-            getService().setThirdAppInstallationEnable(isEnable);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().setThirdAppInstallationEnable(isEnable);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
      * 获取透明加解密配置信息
      */
     public String[] getEncryptConfig() {
-        try {
-            return getService().getEncryptConfig();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-            return  null;
-        }
+//        try {
+//            return getService().getEncryptConfig();
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//            return  null;
+//        }
+        return  null;
     }
 
     /**
@@ -342,13 +346,14 @@ public class VAppPermissionManager {
      * @return 是否可以安装第三方应用状态 true:可以安装第三方应用 false:不可以安装第三方应用
      */
     public boolean getThirdAppInstallationEnable() {
-        try {
-            boolean thirdAppInstallationEnable = getService().getThirdAppInstallationEnable();
-            VLog.d(TAG, "getThirdAppInstallationEnable isEnable: " + thirdAppInstallationEnable);
-            return thirdAppInstallationEnable;
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return VirtualRuntime.crash(e);
-        }
+//        try {
+//            boolean thirdAppInstallationEnable = getService().getThirdAppInstallationEnable();
+//            VLog.d(TAG, "getThirdAppInstallationEnable isEnable: " + thirdAppInstallationEnable);
+//            return thirdAppInstallationEnable;
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            return VirtualRuntime.crash(e);
+//        }
+        return true;
     }
 }

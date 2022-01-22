@@ -214,20 +214,20 @@ public class controllerManager {
     }
 
     public static boolean getNetworkState() {
-        try{
-            return controllerManager.get().getService().getNetworkState();
-        } catch (RemoteException e) {
-            VirtualRuntime.crash(e);
-        }
+//        try{
+//            return controllerManager.get().getService().getNetworkState();
+//        } catch (RemoteException e) {
+//            VirtualRuntime.crash(e);
+//        }
         return false;
     }
 
     public static boolean isWhiteList() {
-        try {
-            return controllerManager.get().getService().isWhiteList();
-        } catch (RemoteException e) {
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            return controllerManager.get().getService().isWhiteList();
+//        } catch (RemoteException e) {
+//            VirtualRuntime.crash(e);
+//        }
         return false;
     }
 
@@ -240,29 +240,31 @@ public class controllerManager {
     }
 
     public String[] getIpStrategy() {
-        try {
-            return getService().getIpStrategy();
-        } catch (RemoteException e) {
-            VirtualRuntime.crash(e);
-            return null;
-        }
+//        try {
+//            return getService().getIpStrategy();
+//        } catch (RemoteException e) {
+//            VirtualRuntime.crash(e);
+//            return null;
+//        }
+        return null;
     }
 
     public String[] getDomainStrategy() {
-        try {
-            return getService().getDomainStrategy();
-        } catch (RemoteException e) {
-            VirtualRuntime.crash(e);
-            return null;
-        }
+//        try {
+//            return getService().getDomainStrategy();
+//        } catch (RemoteException e) {
+//            VirtualRuntime.crash(e);
+//            return null;
+//        }
+        return null;
     }
 
     public static void isNetworkControl(String ipOrdomain,boolean isSuccessOrFail) {
-        try {
-            get().getService().isNetworkControl(VirtualRuntime.getInitialPackageName(),ipOrdomain,isSuccessOrFail);
-        } catch (RemoteException e) {
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            get().getService().isNetworkControl(VirtualRuntime.getInitialPackageName(),ipOrdomain,isSuccessOrFail);
+//        } catch (RemoteException e) {
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     public  boolean getOnOrOffNetworkStrategy() {

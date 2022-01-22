@@ -905,21 +905,21 @@ public final class VClient extends IVClient.Stub {
             NativeEngine.nativeConfigEncryptPkgName(VAppPermissionManager.get().getEncryptConfig());
         }
         NativeEngine.enableIORedirect();
-        if (controllerManager.getNetworkState()) {
-            NativeEngine.nativeConfigNetworkState(controllerManager.getNetworkState());
-            NativeEngine.nativeConfigWhiteOrBlack(controllerManager.isWhiteList());
-            NativeEngine.nativeConfigNetStrategy(controllerManager.get().getIpStrategy(), 1);
-            NativeEngine.nativeConfigNetStrategy(controllerManager.get().getDomainStrategy(), 2);
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    if (controllerManager.get().getDomainStrategy() != null
-                            && controllerManager.get().getDomainStrategy().length > 0) {
-                        NativeEngine.nativeConfigDomainToIp();
-                    }
-                }
-            }).start();
-        }
+//        if (controllerManager.getNetworkState()) {
+//            NativeEngine.nativeConfigNetworkState(controllerManager.getNetworkState());
+//            NativeEngine.nativeConfigWhiteOrBlack(controllerManager.isWhiteList());
+//            NativeEngine.nativeConfigNetStrategy(controllerManager.get().getIpStrategy(), 1);
+//            NativeEngine.nativeConfigNetStrategy(controllerManager.get().getDomainStrategy(), 2);
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    if (controllerManager.get().getDomainStrategy() != null
+//                            && controllerManager.get().getDomainStrategy().length > 0) {
+//                        NativeEngine.nativeConfigDomainToIp();
+//                    }
+//                }
+//            }).start();
+//        }
     }
 
     private void forbidHost() {

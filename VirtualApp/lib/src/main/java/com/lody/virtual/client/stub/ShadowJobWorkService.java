@@ -150,22 +150,9 @@ public class ShadowJobWorkService extends Service {
             if (session != null && !session.isDead()) {
                 // Job Session has exist.
                 long lastTime = session.lasttime;
-                if (lastTime > 0 && config.intervalMillis > 0) {
-                    if ((System.currentTimeMillis() - lastTime) >= config.intervalMillis) {
-                        session.startJob(true);
-                        if (debug) {
-                            VLog.i(TAG, "ShadowJobService:start by session 2");
-                        }
-                    } else {
-                        if (debug) {
-                            VLog.i(TAG, "ShadowJobService:cancel by lasttime");
-                        }
-                    }
-                } else {
-                    session.startJob(true);
-                    if (debug) {
-                        VLog.i(TAG, "ShadowJobService:start by session 1");
-                    }
+                session.startJob(true);
+                if (debug) {
+                    VLog.i(TAG, "ShadowJobService:start by session 1");
                 }
             } else {
                 boolean bound = false;

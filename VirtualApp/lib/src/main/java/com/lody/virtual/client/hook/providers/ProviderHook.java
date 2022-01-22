@@ -1,5 +1,6 @@
 package com.lody.virtual.client.hook.providers;
 
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
@@ -170,43 +171,98 @@ public class ProviderHook implements InvocationHandler {
         try {
             String name = method.getName();
             if ("call".equals(name)) {
-                if (BuildCompat.isQ()) {
+                if (BuildCompat.isR()) {
+                    start = 3;
+                } else if (BuildCompat.isQ()) {
                     start = 2;
+                } else {
+                    start = 1;
                 }
                 String methodName = (String) args[start];
                 String arg = (String) args[start + 1];
                 Bundle extras = (Bundle) args[start + 2];
                 return call(methodBox, methodName, arg, extras);
             } else if ("insert".equals(name)) {
+                if (BuildCompat.isR()) {
+                    start = 2;
+                } else {
+                    start = 1;
+                }
                 Uri url = (Uri) args[start];
                 ContentValues initialValues = (ContentValues) args[start + 1];
                 return insert(methodBox, url, initialValues);
             } else if ("getType".equals(name)) {
                 return getType(methodBox, (Uri) args[0]);
             } else if ("delete".equals(name)) {
-                Uri url = (Uri) args[start];
-                String selection = (String) args[start + 1];
-                String[] selectionArgs = (String[]) args[start + 2];
+                Uri url;
+                String selection;
+                String[] selectionArgs;
+
+                if (BuildCompat.isR()) {
+                    url = (Uri) args[start + 1];
+                    Bundle deleteExtras = (Bundle) args[start + 2];
+                    deleteExtras = (deleteExtras != null) ? deleteExtras : Bundle.EMPTY;
+                    selection = deleteExtras.getString(ContentResolver.QUERY_ARG_SQL_SELECTION);
+                    selectionArgs = deleteExtras.getStringArray(ContentResolver.QUERY_ARG_SQL_SELECTION_ARGS);
+                } else {
+                    url = (Uri) args[start];
+                    selection = (String) args[start + 1];
+                    selectionArgs = (String[]) args[start + 2];
+                }
                 return delete(methodBox, url, selection, selectionArgs);
             } else if ("bulkInsert".equals(name)) {
+                if (BuildCompat.isR()) {
+                    start = 2;
+                } else {
+                    start = 1;
+                }
                 Uri url = (Uri) args[start];
                 ContentValues[] initialValues = (ContentValues[]) args[start + 1];
                 return bulkInsert(methodBox, url, initialValues);
             } else if ("update".equals(name)) {
-                Uri url = (Uri) args[start];
-                ContentValues values = (ContentValues) args[start + 1];
-                String selection = (String) args[start + 2];
-                String[] selectionArgs = (String[]) args[start + 3];
+                Uri url;
+                String selection;
+                String[] selectionArgs;
+                ContentValues values;
+
+                if (BuildCompat.isR()) {
+                    url = (Uri) args[start + 1];
+                    values = (ContentValues) args[start + 2];
+                    Bundle updateExtras = (Bundle) args[start + 3];
+                    updateExtras = (updateExtras != null) ? updateExtras : Bundle.EMPTY;
+                    selection = updateExtras.getString(ContentResolver.QUERY_ARG_SQL_SELECTION);
+                    selectionArgs = updateExtras.getStringArray(ContentResolver.QUERY_ARG_SQL_SELECTION_ARGS);
+                } else {
+                    url = (Uri) args[start];
+                    values = (ContentValues) args[start + 1];
+                    selection = (String) args[start + 2];
+                    selectionArgs = (String[]) args[start + 3];
+                }
                 return update(methodBox, url, values, selection, selectionArgs);
             } else if ("openFile".equals(name)) {
+                if (BuildCompat.isR()) {
+                    start = 2;
+                } else {
+                    start = 1;
+                }
                 Uri url = (Uri) args[start];
                 String mode = (String) args[start + 1];
                 return openFile(methodBox, url, mode);
             } else if ("openAssetFile".equals(name)) {
+                if (BuildCompat.isR()) {
+                    start = 2;
+                } else {
+                    start = 1;
+                }
                 Uri url = (Uri) args[start];
                 String mode = (String) args[start + 1];
                 return openAssetFile(methodBox, url, mode);
             } else if ("query".equals(name)) {
+                if (BuildCompat.isR()) {
+                    start = 2;
+                } else {
+                    start = 1;
+                }
                 Uri url = (Uri) args[start];
                 String[] projection = (String[]) args[start + 1];
                 String selection = null;

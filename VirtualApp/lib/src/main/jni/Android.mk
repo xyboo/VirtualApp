@@ -46,11 +46,9 @@ LOCAL_SRC_FILES := Jni/VAJni.cpp \
                    transparentED/ctr/sm4.c \
                    transparentED/ctr/sm4_cipher.cpp \
                    transparentED/virtualFileSystem.cpp \
-                   transparentED/fileCoder1.cpp \
                    transparentED/TemplateFile.cpp \
                    transparentED/IgnoreFile.cpp \
                    transparentED/encryptInfoMgr.cpp \
-                   safekey/safekey_jni.cpp \
                    utils/zJNIEnv.cpp \
                    utils/utils.cpp \
                    utils/md5.c \
@@ -85,11 +83,9 @@ LOCAL_SRC_FILES := Jni/VAJni.cpp \
                    transparentED/ctr/sm4.c \
                    transparentED/ctr/sm4_cipher.cpp \
                    transparentED/virtualFileSystem.cpp \
-                   transparentED/fileCoder1.cpp \
                    transparentED/TemplateFile.cpp \
                    transparentED/IgnoreFile.cpp \
                    transparentED/encryptInfoMgr.cpp \
-                   safekey/safekey_jni.cpp \
                    utils/zJNIEnv.cpp \
                    utils/utils.cpp \
                    utils/md5.c \
@@ -123,11 +119,9 @@ LOCAL_SRC_FILES := Jni/VAJni.cpp \
                    transparentED/ctr/sm4.c \
                    transparentED/ctr/sm4_cipher.cpp \
                    transparentED/virtualFileSystem.cpp \
-                   transparentED/fileCoder1.cpp \
                    transparentED/TemplateFile.cpp \
                    transparentED/IgnoreFile.cpp \
                    transparentED/encryptInfoMgr.cpp \
-                   safekey/safekey_jni.cpp \
                    utils/zJNIEnv.cpp \
                    utils/utils.cpp \
                    utils/md5.c \

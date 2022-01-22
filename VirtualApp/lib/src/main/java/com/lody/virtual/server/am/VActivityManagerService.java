@@ -452,27 +452,27 @@ public class VActivityManagerService extends IActivityManager.Stub {
 
     //xdja
     private void notifyAppProcessStatus(ProcessRecord app, int uid, boolean status){
-        try{
-            if(status == true) {
-                controllerManager.get().getService().appProcessStart(app.info.packageName, app.processName, app.pid);
-                {
-                    if (!isAppRunning(app.info.packageName, uid, false)) {
-                        controllerManager.get().getService().appStart(app.info.packageName);
-                    }
-                }
-            }else {
-                controllerManager.get().getService().appProcessStop(app.info.packageName, app.processName, app.pid);
-                {
-//                    controllerManager.get().getService().appStop(app.info.packageName);
-                    if (!isAppRunning(app.info.packageName, uid, false)) {
-                        controllerManager.get().getService().appStop(app.info.packageName);
-                    }
-
-                }
-            }
-        }catch (RemoteException e){
-            e.printStackTrace();
-        }
+//        try{
+//            if(status == true) {
+//                controllerManager.get().getService().appProcessStart(app.info.packageName, app.processName, app.pid);
+//                {
+//                    if (!isAppRunning(app.info.packageName, uid, false)) {
+//                        controllerManager.get().getService().appStart(app.info.packageName);
+//                    }
+//                }
+//            }else {
+//                controllerManager.get().getService().appProcessStop(app.info.packageName, app.processName, app.pid);
+//                {
+////                    controllerManager.get().getService().appStop(app.info.packageName);
+//                    if (!isAppRunning(app.info.packageName, uid, false)) {
+//                        controllerManager.get().getService().appStop(app.info.packageName);
+//                    }
+//
+//                }
+//            }
+//        }catch (RemoteException e){
+//            e.printStackTrace();
+//        }
     }
 
     private void onProcessDied(ProcessRecord record) {

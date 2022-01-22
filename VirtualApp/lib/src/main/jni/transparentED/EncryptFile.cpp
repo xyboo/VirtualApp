@@ -4,7 +4,6 @@
 
 #include <stdio.h>
 #include <time.h>
-#include <safekey/safekey_jni.h>
 
 #include <stdlib.h>
 
@@ -18,16 +17,6 @@ using namespace xdja;
 
 char * keyGenerator::generate(size_t keylen) {
     char * key = (char *)malloc(keylen);
-    memset(key, 0, keylen);
-    SafeKeyJni::getRandom(keylen, key);
-    /*timespec time;
-    clock_gettime(CLOCK_REALTIME, &time);  //获取相对于1970到现在的秒数
-    struct tm nowTime;
-    localtime_r(&time.tv_sec, &nowTime);
-
-    sprintf(key, "%04d-%02d-%02d %02d:%02d:%02d", nowTime.tm_year + 1900, nowTime.tm_mon+1, nowTime.tm_mday,
-            nowTime.tm_hour, nowTime.tm_min, nowTime.tm_sec);*/
-    //sprintf(key, "2017120211:19:18");
     return key;
 }
 

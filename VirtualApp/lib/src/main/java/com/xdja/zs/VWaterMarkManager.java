@@ -37,12 +37,12 @@ public class VWaterMarkManager {
      * @param waterMark 水印信息
      */
     public void setWaterMark(WaterMarkInfo waterMark) {
-        try {
-            getService().setWaterMark(waterMark);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            VirtualRuntime.crash(e);
-        }
+//        try {
+//            getService().setWaterMark(waterMark);
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            VirtualRuntime.crash(e);
+//        }
     }
 
     /**
@@ -51,11 +51,12 @@ public class VWaterMarkManager {
      * @return 水印信息
      */
     public WaterMarkInfo getWaterMark() {
-        try {
-            return getService().getWaterMark();
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return VirtualRuntime.crash(e);
-        }
+//        try {
+//            return getService().getWaterMark();
+//        } catch (RemoteException e) {
+//            e.printStackTrace();
+//            return VirtualRuntime.crash(e);
+//        }
+        return null;
     }
 }
